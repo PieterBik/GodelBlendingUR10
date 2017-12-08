@@ -1,0 +1,1 @@
+rosrun moveit_kinematics create_ikfast_moveit_plugin.py ur10 manipulator ur10_ikfast_manipulator_plugin /home/pieter/smr2_blending/src/godel/godel_robots/ur/godel_ur10/ur10_ikfast_manipulator_plugin/src/ur10_manipulator_ikfast_solver.cpp
