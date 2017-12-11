@@ -18,7 +18,7 @@
 #define UR_10_ROBOT_MODEL_H
 
 #include <descartes_moveit/moveit_state_adapter.h>
-#include <ur10_ikfast_manipulator_plugin/ur10_manipulator_ikfast_moveit_plugin.hpp>
+#include <ur10_ikfast_manipulator_plugin/ur10_manipulator_ikfast_moveit_plugin.h>
 
 namespace ur10_descartes
 {
