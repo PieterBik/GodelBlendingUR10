@@ -14,7 +14,7 @@ include_directories(${catkin_INCLUDE_DIRS})
 
 catkin_package(
         INCLUDE_DIRS include
-        LIBRARIES
+        LIBRARIES ${LAPACK_LIBRARIES}
         CATKIN_DEPENDS
         moveit_core
         pluginlib
