@@ -2,6 +2,7 @@
 <robot name="ur10_workspace" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find blending_end_effector)/urdf/blending_eff_macro.xacro"/>
   <xacro:include filename="$(find ur_description)/urdf/ur10.urdf.xacro"/>
+
   <xacro:include filename="$(find godel_ur10_support)/urdf/swri_demo_cell_macro.xacro"/>
 
   <link name="world_frame"/>
