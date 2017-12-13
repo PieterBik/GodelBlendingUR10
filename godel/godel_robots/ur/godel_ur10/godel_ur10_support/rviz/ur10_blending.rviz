@@ -80,6 +80,11 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        adapter_tube:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         base:
           Alpha: 1
           Show Axes: false
@@ -94,10 +99,58 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        bracket:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         chuck_tip_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        demo_cell_back_wall:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        demo_cell_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        demo_cell_corner:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        demo_cell_floor:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        demo_cell_front_wall:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        demo_cell_left_wall:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        demo_cell_right_wall:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        demo_cell_roof:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ee_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         eff_frame:
           Alpha: 1
           Show Axes: false
@@ -111,7 +164,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        gripper_body:
+        forearm_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -133,32 +186,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_6:
+        shoulder_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -171,10 +199,30 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        upper_arm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         world_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        wrist_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Name: ActualRobot
       Robot Description: robot_description
       TF Prefix: ""
@@ -191,6 +239,11 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        adapter_tube:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         base:
           Alpha: 1
           Show Axes: false
@@ -205,10 +258,58 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        bracket:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         chuck_tip_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        demo_cell_back_wall:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        demo_cell_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        demo_cell_corner:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        demo_cell_floor:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        demo_cell_front_wall:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        demo_cell_left_wall:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        demo_cell_right_wall:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        demo_cell_roof:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ee_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         eff_frame:
           Alpha: 1
           Show Axes: false
@@ -222,7 +323,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        gripper_body:
+        forearm_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -244,32 +345,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        link_1:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_2:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_3:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_4:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_5:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        link_6:
+        shoulder_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -282,10 +358,30 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        upper_arm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         world_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        wrist_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Name: SimulatedRobot
       Robot Description: robot_description
       TF Prefix: simulation
@@ -422,6 +518,7 @@ Visualization Manager:
         Z: 0.519352317
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
+      Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
       Pitch: 0.609797239
@@ -434,12 +531,12 @@ Window Geometry:
     collapsed: false
   Displays:
     collapsed: false
-  Height: 804
+  Height: 744
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000001000000000000022b000002defc0200000002fc00000028000002de000000fb0100001dfa000000000100000003fb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff000000bf00fffffffb000000100044006900730070006c0061007900730100000000ffffffff0000016a00fffffffb0000001a0042006c0065006e00640069006e006700500061006e0065006c0100000000000001ba0000009500fffffffb0000001a0042006c0065006e00640069006e006700500061006e0065006c00000004480000001600000000000000000000040f000002de00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000001000000000000022b000002a2fc0200000002fc00000028000002a2000002640100001dfa000000000100000003fb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff000001fe00fffffffb000000100044006900730070006c0061007900730100000000ffffffff0000016a00fffffffb0000001a0042006c0065006e00640069006e006700500061006e0065006c0100000000000001ba0000014600fffffffb0000001a0042006c0065006e00640069006e006700500061006e0065006c0000000448000000160000000000000000000002e4000002a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   RobotBlendingPanel:
     collapsed: false
-  Width: 1600
-  X: 0
-  Y: 28
+  Width: 1301
+  X: 65
+  Y: 24

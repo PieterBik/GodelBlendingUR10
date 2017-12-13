@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8.12)
 project(ur10_ikfast_manipulator_plugin)
 add_definitions(-std=c++11)
 
+set(LAPACK_lapack_WORKS TRUE)
 
 find_package(catkin REQUIRED COMPONENTS
         moveit_core
@@ -10,19 +11,24 @@ find_package(catkin REQUIRED COMPONENTS
         tf_conversions
         )
 
+find_package(LAPACK)
 include_directories(${catkin_INCLUDE_DIRS})
 
 catkin_package(
-        INCLUDE_DIRS include
-        LIBRARIES ${LAPACK_LIBRARIES}
+        INCLUDE_DIRS
+            include
+        LIBRARIES
+            ${LAPACK_LIBRARIES}
         CATKIN_DEPENDS
-        moveit_core
-        pluginlib
-        roscpp
-        tf_conversions
+            moveit_core
+            pluginlib
+            roscpp
+            tf_conversions
 )
 
-include_directories(include)
+include_directories(include
+        ${catkin_INCLUDE_DIRS}
+        )
 
 set(IKFAST_LIBRARY_NAME ur10_manipulator_moveit_ikfast_plugin)
 
