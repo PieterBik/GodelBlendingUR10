@@ -1314,4 +1314,4 @@ namespace ur10_ikfast_manipulator_plugin
 
 }  // end namespace
 
-#endif
+#endif //PROJECT_UR10_MANIPULATOR_IKFAST_MOVEIT_PLUGIN_H
