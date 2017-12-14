@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="machine" default="localhost"/>
+  <remap from="/kinect2/sd/points" to="/sensor_point_cloud"/>
+  <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch" >
+    <arg name="fps_limit" value="1" />
+    <arg name="publish_tf" value="true"/>
+    <arg name="base_name" value="kinect2" /> 
+    <arg name="use_nodelet" value="true" />
+    <arg name="queue_size" value="5" />
+  </include>
+  <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="1 0 1 1 0 0 0 world_frame kinect2_link 100" />
+</launch>
