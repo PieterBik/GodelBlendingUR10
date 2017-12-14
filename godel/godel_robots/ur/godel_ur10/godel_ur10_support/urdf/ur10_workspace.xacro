@@ -8,7 +8,7 @@
   <link name="world_frame"/>
 
   <!-- instantiating arm  --> 
-  <xacro:ur10_robot prefix="" joint_limited="true"/>
+  <xacro:ur10_robot prefix="" joint_limited="false"/>
   <!-- instantiating end effector  -->
   <xacro:blending_eff_definition prefix=""/>
 

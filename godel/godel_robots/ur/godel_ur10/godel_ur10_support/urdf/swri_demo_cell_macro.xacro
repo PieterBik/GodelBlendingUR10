@@ -4,12 +4,12 @@
 <!-- Root link: ${prefix}demo_cell_base_link -->
 <!-- Origin is at the robot (IRB 2400) mounting location -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:property name="demo_cell_width" value="2.8288"/> <!-- 60" table + 12" forward-->
-  <xacro:property name="demo_cell_length" value="2.524"/> <!--36" table + 12" left + 12" right -->
-  <xacro:property name="demo_cell_height" value="3.4384"/> <!--96"  vertical-->
+  <xacro:property name="demo_cell_width" value="12.8288"/> <!-- 60" table + 12" forward-->
+  <xacro:property name="demo_cell_length" value="12.524"/> <!--36" table + 12" left + 12" right -->
+  <xacro:property name="demo_cell_height" value="13.4384"/> <!--96"  vertical-->
 
-  <xacro:property name="robot_to_corner_x" value="-0.95"/> <!-- 17.7165" from back -->
-  <xacro:property name="robot_to_corner_y" value="-1.262"/> <!-- middle of width -->
+  <xacro:property name="robot_to_corner_x" value="-5.95"/> <!-- 17.7165" from back -->
+  <xacro:property name="robot_to_corner_y" value="-6.262"/> <!-- middle of width -->
 
   <xacro:property name="demo_cell_wall_thickness" value="0.05"/>
 
