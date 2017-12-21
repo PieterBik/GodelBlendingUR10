@@ -61,7 +61,7 @@
       </node>
     </group>
     <group unless="$(arg real_pcd)">
-      <remap from="generated_cloud" to="sensor_point_cloud"/>
+      <remap from="generated_cloud" to="sensor_point_cloud_remap"/>
       <node pkg="godel_surface_detection" type="point_cloud_generator_node" name="point_cloud_generator_node">
         <rosparam command="load" file="$(find godel_ur10_support)/config/point_cloud_descriptions.yaml"/>
       </node>
@@ -106,7 +106,7 @@
     <arg name="sim" value="$(arg sim_robot)"/>
   </include>
 
-  <node pkg="tf" type="static_transform_publisher" name="ensenso_static_tf" args="0 0 0 0 1.57 0 kinect2_move_frame camera_optical_frame 100" />
+  <node pkg="tf" type="static_transform_publisher" name="ensenso_static_tf" args="0.10 0 2.28 0 -1.57 0 kinect2_move_frame camera_optical_frame 100" />
   <rosparam command="load" file="$(find meshing_plugins)/config/meshing.yaml" />
   <rosparam command="load" file="$(find path_planning_plugins)/config/path_planning.yaml" />
   <rosparam command="load" file="$(find godel_process_planning)/config/process_planning.yaml" />
