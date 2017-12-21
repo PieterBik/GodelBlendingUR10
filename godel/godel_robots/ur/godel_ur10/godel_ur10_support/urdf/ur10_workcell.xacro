@@ -1,0 +1,101 @@
+<?xml version="1.0" ?>
+
+<!-- Exports macro: "xacro:swri_demo_cell" with 1 arg: prefix -->
+<!-- Root link: ${prefix}demo_cell_base_link -->
+<!-- Origin is at the robot (IRB 2400) mounting location -->
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <!--
+    The demo cell macro
+    * All uses of "left" and "right" are relative to an observer looking into the cage
+    * through the light curtains
+  -->
+
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+    <material name="black">
+  <color rgba="0.1 0.1 0.1 1"/>
+    </material>
+  <material name="gray">
+    <color rgba="0.7 0.7 0.7 1"/>
+  </material>
+  <material name="yellow">
+    <color rgba="0.9 0.8 0.3 1"/>
+  </material>
+  <material name="poster">
+              <texture filename="package://godel_ur10_support/urdf/textures/poster.png"/>
+  </material>
+
+  <xacro:macro name="swri_demo_cell" params="prefix">
+
+  <link name="table">
+        <visual>
+            <geometry>
+                <box size="2.0 0.70 0.860"/>
+            </geometry>
+            <origin xyz="0.0 -0.225 0.43" rpy="0 0 0" />
+            <material name="yellow" />
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="2.0 0.70 0.860"/>
+            </geometry>
+            <origin xyz="0.0 -0.225 0.44" rpy="0 0 0.0" />
+        </collision>
+  </link>
+  <link name="back_wall">
+        <visual>
+            <geometry>
+                <box size="4.0 0.10 3.0"/>
+            </geometry>
+            <origin xyz="0.0 0.73 1.5" rpy="0 0 0" />
+            <material name="gray" />
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="4.0 0.10 3.0"/>
+            </geometry>
+            <origin xyz="0.0 0.73 1.5" rpy="0 0 0" />
+        </collision>
+  </link>
+  <link name="poster">
+          <visual>
+              <geometry>
+                  <box size="1.5 1.059 0.0"/>
+              </geometry>
+               <origin xyz="2.0 0.0 -0.675" rpy="0 0 0" />
+              <material name="poster" />
+          </visual>
+  </link>
+
+  <joint name="world_to_table" type="fixed">
+        <parent link="${prefix}demo_cell_base_link" />
+        <child link ="table" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="world_to_back_wall" type="fixed">
+        <parent link="${prefix}demo_cell_base_link" />
+        <child link ="back_wall" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="world_to_trays" type="fixed">
+        <parent link="${prefix}demo_cell_base_link" />
+        <child link ="trays" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="world_to_poster" type="fixed">
+        <parent link="${prefix}demo_cell_base_link" />
+        <child link ="poster" />
+        <origin xyz="0 0 0" rpy="0 -1.57 1.57" />
+  </joint>
+
+  </xacro:macro>
+</robot>

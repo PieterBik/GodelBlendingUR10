@@ -3,16 +3,74 @@
   <xacro:include filename="$(find blending_end_effector)/urdf/blending_eff_macro.xacro"/>
   <xacro:include filename="$(find ur_description)/urdf/ur10.urdf.xacro"/>
 
-  <xacro:include filename="$(find godel_ur10_support)/urdf/swri_demo_cell_macro.xacro"/>
+
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+    <material name="black">
+  <color rgba="0.1 0.1 0.1 1"/>
+    </material>
+  <material name="gray">
+    <color rgba="0.7 0.7 0.7 1"/>
+  </material>
+  <material name="yellow">
+    <color rgba="0.9 0.8 0.3 1"/>
+  </material>
+  <material name="poster">
+    <texture filename="package://godel_ur10_support/urdf/textures/poster.png"/>
+  </material>
 
   <link name="world_frame"/>
+
+  <link name="table">
+        <visual>
+            <geometry>
+                <box size="2.0 0.70 0.860"/>
+            </geometry>
+            <origin xyz="0.0 0.0 0.43" rpy="0 0 0" />
+            <material name="yellow" />
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="2.0 0.70 0.860"/>
+            </geometry>
+            <origin xyz="0.0 0.0 0.44" rpy="0 0 0.0" />
+        </collision>
+  </link>
+  <link name="back_wall">
+        <visual>
+            <geometry>
+                <box size="4.0 0.10 3.0"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="gray" />
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="4.0 0.10 3.0"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+  </link>
+  <link name="poster">
+          <visual>
+              <geometry>
+                  <box size="1.5 1.059 0.0"/>
+              </geometry>
+               <origin xyz="0 0 0" rpy="0 0 0" />
+              <material name="poster" />
+          </visual>
+  </link>
 
   <!-- instantiating arm  --> 
   <xacro:ur10_robot prefix="" joint_limited="false"/>
   <!-- instantiating end effector  -->
   <xacro:blending_eff_definition prefix=""/>
-
-  <xacro:swri_demo_cell prefix=""/>
 
   <!-- Attach the end effector to the end of the robot arm (tool0) -->
   <joint name="link_t_to_eff" type="fixed">
@@ -25,13 +83,24 @@
   <joint name="world_to_base" type="fixed">
     <parent link="world_frame"/>
     <child link="base_link"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0.91 0 0.880" rpy="0 0 0"/>
   </joint>
 
-  <joint name="world_to_demo_cell" type="fixed">
-    <parent link="world_frame"/>
-    <child link="demo_cell_base_link"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+  <joint name="world_to_table" type="fixed">
+          <parent link="world_frame" />
+          <child link ="table" />
+          <origin xyz="0 0 0" rpy="0 0 0" />
   </joint>
-  
+  <joint name="world_to_back_wall" type="fixed">
+          <parent link="world_frame" />
+          <child link ="back_wall" />
+          <origin xyz="0.0 0.40 1.5" rpy="0 0 0" />
+  </joint>
+
+  <joint name="world_to_poster" type="fixed">
+          <parent link="back_wall" />
+          <child link ="poster" />
+          <origin xyz="0 -0.051 0.30" rpy="0 -1.57 1.57" />
+  </joint>
+
 </robot>

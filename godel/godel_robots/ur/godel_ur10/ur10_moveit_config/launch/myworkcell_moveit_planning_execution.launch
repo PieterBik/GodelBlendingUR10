@@ -11,7 +11,7 @@
 
     <!-- the "sim" argument controls whether we connect to a Simulated or Real robot -->
     <!--  - if sim=false, a robot_ip argument is required -->
-    <arg name="sim" default="true" />
+    <arg name="sim" default="false" />
     <arg name="limited" default="true" />
     <arg name="debug" default="true" />
 
