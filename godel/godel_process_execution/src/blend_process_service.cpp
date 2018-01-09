@@ -62,7 +62,7 @@ bool godel_process_execution::BlendProcessService::executeProcess(
         return false;
     }
 
-    arduino.open("/dev/usb/tty0");
+    arduino.open("/dev/usb/tty0",  std::ios_base::out | std::ios_base::in);
     bool isOpen = arduino.is_open();
 
     if(isOpen)
