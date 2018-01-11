@@ -16,9 +16,9 @@
   <xacro:property name="kinect_mount_y" value="-0.065"/>
   <xacro:property name="kinect_mount_z" value="0.15"/>
 
-  <xacro:property name="blend_tcp_x" value="0.040"/>
-  <xacro:property name="blend_tcp_y" value="0"/>
-  <xacro:property name="blend_tcp_z" value="0.0"/> <!-- TBD -->
+  <xacro:property name="blend_tcp_x" value="0.0"/>
+  <xacro:property name="blend_tcp_y" value="0.0"/>
+  <xacro:property name="blend_tcp_z" value="0.04"/> <!-- TBD -->
 
   <xacro:property name="chuck_tcp_x" value="0.0"/>
   <xacro:property name="chuck_tcp_y" value="0.0"/>
@@ -111,7 +111,7 @@
     <joint name="bracket_to_chuck" type="fixed">
         <parent link="bracket"/>
         <child link="chuck_tip_frame"/>
-        <origin xyz="${chuck_tcp_x} ${chuck_tcp_y} ${chuck_tcp_z}" rpy="0 -${half_pi} 0"/>
+        <origin xyz="${chuck_tcp_x} ${chuck_tcp_y} ${chuck_tcp_z}" rpy="0 0 0.78"/>
     </joint>
 
     <joint name="chuck_to_blend_tcp_frame" type="fixed">
