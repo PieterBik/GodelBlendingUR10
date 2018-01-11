@@ -32,8 +32,4 @@
     <include file="$(find ur10_moveit_config)/launch/move_group.launch">
         <arg name="publish_monitored_planning_scene" value="true" />
     </include>
-
-    <include file="$(find ur10_moveit_config)/launch/moveit_rviz.launch">
-    </include>
-
 </launch>

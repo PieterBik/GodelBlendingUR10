@@ -1,17 +1,22 @@
 Panels:
-  - Class: godel_simple_gui/BlendingPanel
-    Name: BlendingPanel
   - Class: rviz/Displays
     Help Height: 78
     Name: Displays
     Property Tree Widget:
       Expanded:
         - /Tool Path Preview1
+        - /TF1
+        - /TF1/Frames1
       Splitter Ratio: 0.5
-    Tree Height: 337
+    Tree Height: 501
   - Class: godel_plugins/RobotBlendingPanel
     Name: RobotBlendingPanel
     TextEntry: test_field
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
 Visualization Manager:
   Class: ""
   Displays:
@@ -80,7 +85,20 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        UR10_EOAT:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        UR10_EOAT_rotate:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         adapter_tube:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        back_wall:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -98,54 +116,14 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
         bracket:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
         chuck_tip_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        demo_cell_back_wall:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        demo_cell_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        demo_cell_corner:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        demo_cell_floor:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        demo_cell_front_wall:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        demo_cell_left_wall:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        demo_cell_right_wall:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        demo_cell_roof:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         ee_link:
           Alpha: 1
           Show Axes: false
@@ -159,7 +137,6 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
         ensenso_sensor_optical_frame:
           Alpha: 1
           Show Axes: false
@@ -173,7 +150,6 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
         keyence_sensor_optical_frame:
           Alpha: 1
           Show Axes: false
@@ -187,6 +163,16 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         shoulder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        smr-poster:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        table:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -232,161 +218,18 @@ Visualization Manager:
     - Alpha: 0.5
       Class: rviz/RobotModel
       Collision Enabled: false
-      Enabled: true
+      Enabled: false
       Links:
         All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        adapter_tube:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        blending_tool:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        bracket:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        chuck_tip_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        demo_cell_back_wall:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        demo_cell_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        demo_cell_corner:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        demo_cell_floor:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        demo_cell_front_wall:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        demo_cell_left_wall:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        demo_cell_right_wall:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        demo_cell_roof:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        ee_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        eff_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        ensenso:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        ensenso_sensor_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        forearm_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        keyence:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        keyence_sensor_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        keyence_tcp_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        kinect2_move_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        shoulder_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        tcp_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        tool0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        upper_arm_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        world_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        wrist_1_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wrist_2_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wrist_3_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Name: SimulatedRobot
       Robot Description: robot_description
       TF Prefix: simulation
       Update Interval: 0
-      Value: true
+      Value: false
       Visual Enabled: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
@@ -427,19 +270,130 @@ Visualization Manager:
       Queue Size: 100
       Value: true
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
+        UR10_EOAT:
+          Value: false
+        UR10_EOAT_rotate:
+          Value: false
+        adapter_tube:
+          Value: false
+        back_wall:
+          Value: false
+        base:
+          Value: false
+        base_link:
+          Value: false
+        blending_tool:
+          Value: false
+        bracket:
+          Value: true
+        camera_optical_frame:
+          Value: false
+        chuck_tip_frame:
+          Value: true
+        ee_link:
+          Value: false
+        eff_frame:
+          Value: false
+        ensenso:
+          Value: false
+        ensenso_sensor_optical_frame:
+          Value: false
+        forearm_link:
+          Value: false
+        keyence:
+          Value: false
+        keyence_sensor_optical_frame:
+          Value: false
+        keyence_tcp_frame:
+          Value: false
+        kinect2_ir_optical_frame:
+          Value: false
+        kinect2_link:
+          Value: false
+        kinect2_move_frame:
+          Value: false
+        kinect2_rgb_optical_frame:
+          Value: false
+        shoulder_link:
+          Value: false
+        smr-poster:
+          Value: false
+        table:
+          Value: false
+        tcp_frame:
+          Value: true
+        tool0:
+          Value: false
+        tool0_controller:
+          Value: false
+        upper_arm_link:
+          Value: false
+        world_frame:
+          Value: false
+        wrist_1_link:
+          Value: false
+        wrist_2_link:
+          Value: false
+        wrist_3_link:
+          Value: false
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        world_frame:
+          back_wall:
+            smr-poster:
+              {}
+          base_link:
+            base:
+              tool0_controller:
+                {}
+            shoulder_link:
+              upper_arm_link:
+                forearm_link:
+                  wrist_1_link:
+                    wrist_2_link:
+                      wrist_3_link:
+                        ee_link:
+                          {}
+                        tool0:
+                          eff_frame:
+                            UR10_EOAT_rotate:
+                              UR10_EOAT:
+                                {}
+                            adapter_tube:
+                              bracket:
+                                blending_tool:
+                                  {}
+                                chuck_tip_frame:
+                                  tcp_frame:
+                                    {}
+                                ensenso:
+                                  {}
+                                ensenso_sensor_optical_frame:
+                                  kinect2_move_frame:
+                                    camera_optical_frame:
+                                      {}
+                                    kinect2_link:
+                                      kinect2_rgb_optical_frame:
+                                        kinect2_ir_optical_frame:
+                                          {}
+                                keyence:
+                                  {}
+                                keyence_sensor_optical_frame:
+                                  {}
+                                keyence_tcp_frame:
+                                  {}
+          table:
+            {}
       Update Interval: 0
-      Value: false
+      Value: true
     - Alpha: 1
       Arrow Length: 0.300000012
       Axes Length: 0.00499999989
@@ -506,36 +460,36 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.5955658
+      Distance: 1.75369
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.484392911
-        Y: -0.0584972017
-        Z: 0.519352317
+        X: 0.174034283
+        Y: 0.192206755
+        Z: 2.02390075
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.609797239
+      Pitch: -0.815202236
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.54469919
+      Yaw: 4.94462776
     Saved: ~
 Window Geometry:
-  BlendingPanel:
-    collapsed: false
   Displays:
     collapsed: false
   Height: 744
   Hide Left Dock: false
-  Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000001000000000000022b000002a2fc0200000002fc00000028000002a2000002640100001dfa000000000100000003fb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff000001fe00fffffffb000000100044006900730070006c0061007900730100000000ffffffff0000016a00fffffffb0000001a0042006c0065006e00640069006e006700500061006e0065006c0100000000000001ba0000014600fffffffb0000001a0042006c0065006e00640069006e006700500061006e0065006c0000000448000000160000000000000000000002e4000002a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Hide Right Dock: true
+  QMainWindow State: 000000ff00000000fd00000001000000000000022b000002a2fc0200000003fc00000028000002a2000002640100001dfa000000010100000003fb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff000001fe00fffffffb000000100044006900730070006c0061007900730100000000ffffffff0000016a00fffffffb0000001a0042006c0065006e00640069006e006700500061006e0065006c0000000000000001ba0000000000000000fb0000001a0042006c0065006e00640069006e006700500061006e0065006c0000000448000000160000000000000000fb0000000a005600690065007700730000000292000000b0000000b000ffffff000002e4000002a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   RobotBlendingPanel:
+    collapsed: false
+  Views:
     collapsed: false
   Width: 1301
   X: 65

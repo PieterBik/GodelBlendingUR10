@@ -6,5 +6,5 @@
 <!-- 3. THIS process server: "blend_process_execution" -->
 
 <launch>
-  <node pkg="godel_process_execution" type="blend_process_service_node" name="blend_process_execution"/>
+  <node pkg="godel_process_execution" type="blend_process_service_node" name="blend_process_execution" output="screen"/>
 </launch>

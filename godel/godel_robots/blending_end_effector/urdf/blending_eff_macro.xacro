@@ -16,13 +16,13 @@
   <xacro:property name="kinect_mount_y" value="-0.065"/>
   <xacro:property name="kinect_mount_z" value="0.15"/>
 
-  <xacro:property name="blend_tcp_x" value="0"/>
+  <xacro:property name="blend_tcp_x" value="0.040"/>
   <xacro:property name="blend_tcp_y" value="0"/>
-  <xacro:property name="blend_tcp_z" value="0.040"/> <!-- TBD -->
+  <xacro:property name="blend_tcp_z" value="0.0"/> <!-- TBD -->
 
-  <xacro:property name="chuck_tcp_x" value="-0.2507"/>
-  <xacro:property name="chuck_tcp_y" value="-0.0035"/>
-  <xacro:property name="chuck_tcp_z" value="0.1228"/>
+  <xacro:property name="chuck_tcp_x" value="0.0"/>
+  <xacro:property name="chuck_tcp_y" value="0.0"/>
+  <xacro:property name="chuck_tcp_z" value="0.15"/>
 
 
   <xacro:property name="half_pi" value="1.5707963267948966"/>
@@ -31,21 +31,38 @@
   <xacro:macro name="blending_eff_definition" params="prefix">
     <!-- eff_frame is Base Link -->
     <link name="eff_frame"/>
+    <link name="UR10_EOAT_rotate"/>
+
+
+    <link name="UR10_EOAT">
+        <visual>
+            <geometry>
+              <mesh filename="package://blending_end_effector/meshes/visual/UR10_EOAT.stl"/>
+            </geometry>
+            <material name="grey">
+              <color rgba="0.5 0.5 0.5 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+              <mesh filename="package://blending_end_effector/meshes/collision/UR10_EOAT_Collision.stl"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="eff_frame_to_UR10_EOAT_rotate" type="fixed">
+        <parent link="eff_frame"/>
+        <child link="UR10_EOAT_rotate"/>
+        <origin xyz="0 0 0" rpy="0 0 0.785"/>
+    </joint>
+
+    <joint name="UR10_EOAT_rotate_to_UR10_EOAT" type="fixed">
+        <parent link="UR10_EOAT_rotate"/>
+        <child link="UR10_EOAT"/>
+        <origin xyz="0 0.08 0" rpy="0 0 0"/>
+    </joint>
 
     <link name="adapter_tube">
-      <visual>
-        <geometry>
-          <mesh filename="package://blending_end_effector/meshes/visual/Adapter_Tube.STL"/>
-        </geometry>
-        <material name="grey">
-          <color rgba="0.5 0.5 0.5 1.0"/>
-        </material>
-      </visual>
-      <collision>
-        <geometry>
-          <mesh filename="package://blending_end_effector/meshes/collision/adapter_tube_convex_hull.STL"/>
-        </geometry>
-      </collision>
     </link>
 
     <joint name="eff_frame_to_adapter_tube" type="fixed">
@@ -55,19 +72,6 @@
     </joint>
 
     <link name="bracket">
-      <visual>
-        <geometry>
-          <mesh filename="package://blending_end_effector/meshes/visual/Tool_Mounting_Plate.STL"/>
-        </geometry>
-        <material name="grey">
-          <color rgba="0.5 0.5 0.5 1.0"/>
-        </material>
-      </visual>
-      <collision>
-        <geometry>
-          <mesh filename="package://blending_end_effector/meshes/collision/EE_and_Tool_Changer_convex_hull.STL"/>
-        </geometry>
-      </collision>
     </link>
 
     <joint name="adapter_tube_to_bracket" type="fixed">
@@ -77,14 +81,6 @@
     </joint>
 
     <link name="blending_tool">
-        <visual>
-            <geometry>
-                <mesh filename="package://blending_end_effector/meshes/visual/Blending_Tool.STL"/>
-            </geometry>
-            <material name="red">
-                <color rgba="1 0 0 1"/>
-            </material>
-        </visual>
     </link>
 
     <joint name="bracket_to_blending_tool" type="fixed">
@@ -93,14 +89,6 @@
     </joint>
 
     <link name="ensenso">
-        <visual>
-            <geometry>
-                <mesh filename="package://blending_end_effector/meshes/visual/Ensenso.STL"/>
-            </geometry>
-            <material name="blue">
-                <color rgba="0 0 1 1"/>
-            </material>
-        </visual>
     </link>
 
     <joint name="bracket_to_ensenso" type="fixed">
@@ -109,14 +97,6 @@
     </joint>
 
     <link name="keyence">
-        <visual>
-            <geometry>
-                <mesh filename="package://blending_end_effector/meshes/visual/Laser_Sensor.STL"/>
-            </geometry>
-            <material name="yellow">
-                <color rgba="1 1 0 1"/>
-            </material>
-        </visual>
     </link>
 
     <joint name="bracket_to_keyence" type="fixed">
