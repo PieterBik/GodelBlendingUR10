@@ -39,6 +39,7 @@
 
     <node name="scan_process_execution" pkg="godel_process_execution" type="keyence_process_service_node"/>
   </group>
+
   <!-- Bring up simulated robot that can be visualized under the tf namespace 'simulation'
        Allows for previewing paths generated before execution. -->
   <include file="$(find industrial_robot_simulator_service)/launch/start_simulation_server.launch"/>
@@ -61,7 +62,7 @@
       </node>
     </group>
     <group unless="$(arg real_pcd)">
-      <remap from="generated_cloud" to="sensor_point_cloud"/>
+      <remap from="generated_cloud" to="sensor_point_cloud_remap"/>
       <node pkg="godel_surface_detection" type="point_cloud_generator_node" name="point_cloud_generator_node">
         <rosparam command="load" file="$(find godel_ur10_support)/config/point_cloud_descriptions.yaml"/>
       </node>

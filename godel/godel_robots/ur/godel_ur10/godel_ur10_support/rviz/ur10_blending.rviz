@@ -5,10 +5,18 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /ActualRobot1
-        - /SimulatedRobot1
+        - /SimulatedRobot1/Status1
+        - /SimulatedRobot1/Links1
+        - /Tool Path Preview1
+        - /Tool Path Preview1/Namespaces1
         - /TF1/Frames1
+        - /MotionPlanning1
+        - /MotionPlanning1/Scene Robot1
+        - /MotionPlanning1/Planning Request1
+        - /MotionPlanning1/Planning Metrics1
+        - /MotionPlanning1/Planned Path1
       Splitter Ratio: 0.5
-    Tree Height: 337
+    Tree Height: 813
   - Class: godel_plugins/RobotBlendingPanel
     Name: RobotBlendingPanel
     TextEntry: test_field
@@ -82,19 +90,163 @@ Visualization Manager:
       Value: true
     - Alpha: 1
       Class: rviz/RobotModel
-      Collision Enabled: true
-      Enabled: false
+      Collision Enabled: false
+      Enabled: true
       Links:
         All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        UR10_EOAT:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        UR10_EOAT_rotate:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        adapter_tube:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        back_wall:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        blending_tool:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        bracket:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        chuck_tip_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ee_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        eff_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ensenso:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ensenso_sensor_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        forearm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        keyence:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        keyence_sensor_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        keyence_tcp_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        kinect2_move_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        robotbase:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        shoulder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        side_wall:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        smr-poster:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tableBottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tableTop:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tcp_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        tool0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        toolstation:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        upper_arm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        world_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        wrist_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wrist_3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Name: ActualRobot
       Robot Description: robot_description
       TF Prefix: ""
       Update Interval: 0
-      Value: false
+      Value: true
       Visual Enabled: true
     - Alpha: 0.5
       Class: rviz/RobotModel
@@ -183,7 +335,17 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        robotbase:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         shoulder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        side_wall:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -193,7 +355,12 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        table:
+        tableBottom:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        tableTop:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -240,7 +407,7 @@ Visualization Manager:
       TF Prefix: simulation
       Update Interval: 0
       Value: true
-      Visual Enabled: true
+      Visual Enabled: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -253,7 +420,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: RGB8
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Max Intensity: 4096
@@ -270,13 +437,14 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
+      Value: false
     - Class: rviz/MarkerArray
       Enabled: true
       Marker Topic: /tool_path_preview
       Name: Tool Path Preview
       Namespaces:
-        {}
+        blend_paths: true
+        scan_paths: false
       Queue Size: 100
       Value: true
     - Class: rviz/TF
@@ -315,7 +483,7 @@ Visualization Manager:
       Axes Radius: 0.00100000005
       Class: rviz/PoseArray
       Color: 255; 25; 0
-      Enabled: false
+      Enabled: true
       Head Length: 0.0700000003
       Head Radius: 0.0299999993
       Name: BlendPoseArray
@@ -324,7 +492,7 @@ Visualization Manager:
       Shape: Axes
       Topic: /blend_visualization
       Unreliable: false
-      Value: false
+      Value: true
     - Alpha: 1
       Arrow Length: 0.300000012
       Axes Length: 0.00499999989
@@ -446,7 +614,17 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
+          robotbase:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           shoulder_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          side_wall:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -456,7 +634,12 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          table:
+          tableBottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          tableTop:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -502,7 +685,7 @@ Visualization Manager:
         Robot Alpha: 0.5
         Robot Color: 150; 50; 150
         Show Robot Collision: false
-        Show Robot Visual: true
+        Show Robot Visual: false
         Show Trail: false
         State Display Time: 0.05 s
         Trail Step Size: 1
@@ -529,10 +712,10 @@ Visualization Manager:
       Planning Scene Topic: move_group/monitored_planning_scene
       Robot Description: robot_description
       Scene Geometry:
-        Scene Alpha: 0.899999976
+        Scene Alpha: 0
         Scene Color: 50; 230; 50
         Scene Display Time: 0.200000003
-        Show Scene Geometry: true
+        Show Scene Geometry: false
         Voxel Coloring: Z-Axis
         Voxel Rendering: Occupied Voxels
       Scene Robot:
@@ -620,7 +803,17 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
+          robotbase:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
           shoulder_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          side_wall:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -630,7 +823,12 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
-          table:
+          tableBottom:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          tableTop:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -679,6 +877,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
+    Default Light: true
     Fixed Frame: world_frame
     Frame Rate: 30
   Name: root
@@ -694,43 +893,43 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 7.20521498
+      Distance: 2.47131062
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.737269878
-        Y: 0.149185628
-        Z: 1.0618856
+        X: 0.453481942
+        Y: 0.191954643
+        Z: 0.89699614
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: -0.135205984
+      Pitch: 0.904798746
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.56958771
+      Yaw: 4.27458858
     Saved: ~
 Window Geometry:
   BlendingPanel:
     collapsed: false
   Displays:
     collapsed: false
-  Height: 744
+  Height: 1056
   Hide Left Dock: false
   Hide Right Dock: true
   MotionPlanning:
     collapsed: false
   MotionPlanning - Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002b8000002a2fc0200000005fb0000001a0042006c0065006e00640069006e006700500061006e0065006c000000044800000016000001fc00fffffffb0000000a005600690065007700730000000292000000b0000000b000fffffffb000000120020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000004a00fffffffc00000028000002a2000002640100001dfa000000010100000005fb0000001a0042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff0000000000000000fb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff000001fe00fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000000ffffffff000002b800fffffffb000000100044006900730070006c0061007900730100000000ffffffff0000016a00fffffffb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0000000000000001fe000001fe00ffffff00000257000002a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002b8000003dafc0200000005fb0000001a0042006c0065006e00640069006e006700500061006e0065006c000000044800000016000001fc00fffffffb0000000a005600690065007700730000000292000000b0000000b000fffffffb000000120020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000001600000016fc00000028000003da000002640100001dfa000000010100000005fb0000001a0042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff0000000000000000fb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff000001fe00fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000000ffffffff000002b800fffffffb000000100044006900730070006c0061007900730100000000ffffffff0000016a00fffffffb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0000000000000001fe000001fe00ffffff00000481000003da00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   RobotBlendingPanel:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1301
+  Width: 1855
   X: 65
   Y: 24
