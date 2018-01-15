@@ -4,11 +4,11 @@ Panels:
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Tool Path Preview1
-        - /TF1
+        - /ActualRobot1
+        - /SimulatedRobot1
         - /TF1/Frames1
       Splitter Ratio: 0.5
-    Tree Height: 916
+    Tree Height: 337
   - Class: godel_plugins/RobotBlendingPanel
     Name: RobotBlendingPanel
     TextEntry: test_field
@@ -17,6 +17,11 @@ Panels:
       - /Current View1
     Name: Views
     Splitter Ratio: 0.5
+  - Class: godel_plugins/RobotBlendingPanel
+    Name: RobotBlendingPanel
+    TextEntry: test_field
+  - Class: godel_simple_gui/BlendingPanel
+    Name: BlendingPanel
 Visualization Manager:
   Class: ""
   Displays:
@@ -77,6 +82,22 @@ Visualization Manager:
       Value: true
     - Alpha: 1
       Class: rviz/RobotModel
+      Collision Enabled: true
+      Enabled: false
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+      Name: ActualRobot
+      Robot Description: robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: false
+      Visual Enabled: true
+    - Alpha: 0.5
+      Class: rviz/RobotModel
       Collision Enabled: false
       Enabled: true
       Links:
@@ -214,27 +235,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-      Name: ActualRobot
-      Robot Description: robot_description
-      TF Prefix: ""
-      Update Interval: 0
-      Value: true
-      Visual Enabled: true
-    - Alpha: 0.5
-      Class: rviz/RobotModel
-      Collision Enabled: false
-      Enabled: false
-      Links:
-        All Links Enabled: true
-        Expand Joint Details: false
-        Expand Link Details: false
-        Expand Tree: false
-        Link Tree Style: Links in Alphabetic Order
       Name: SimulatedRobot
       Robot Description: robot_description
       TF Prefix: simulation
       Update Interval: 0
-      Value: false
+      Value: true
       Visual Enabled: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
@@ -275,134 +280,19 @@ Visualization Manager:
       Queue Size: 100
       Value: true
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        UR10_EOAT:
-          Value: false
-        UR10_EOAT_rotate:
-          Value: false
-        adapter_tube:
-          Value: false
-        back_wall:
-          Value: false
-        base:
-          Value: false
-        base_link:
-          Value: false
-        blending_tool:
-          Value: false
-        bracket:
-          Value: false
-        camera_optical_frame:
-          Value: false
-        chuck_tip_frame:
-          Value: false
-        ee_link:
-          Value: false
-        eff_frame:
-          Value: false
-        ensenso:
-          Value: false
-        ensenso_sensor_optical_frame:
-          Value: false
-        forearm_link:
-          Value: false
-        keyence:
-          Value: false
-        keyence_sensor_optical_frame:
-          Value: false
-        keyence_tcp_frame:
-          Value: false
-        kinect2_ir_optical_frame:
-          Value: false
-        kinect2_link:
-          Value: true
-        kinect2_move_frame:
-          Value: true
-        kinect2_rgb_optical_frame:
-          Value: false
-        shoulder_link:
-          Value: false
-        smr-poster:
-          Value: false
-        table:
-          Value: false
-        tcp_frame:
-          Value: false
-        tool0:
-          Value: false
-        tool0_controller:
-          Value: false
-        toolstation:
-          Value: false
-        upper_arm_link:
-          Value: false
-        world_frame:
-          Value: false
-        wrist_1_link:
-          Value: false
-        wrist_2_link:
-          Value: false
-        wrist_3_link:
-          Value: false
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        world_frame:
-          back_wall:
-            smr-poster:
-              {}
-          base_link:
-            base:
-              tool0_controller:
-                {}
-            shoulder_link:
-              upper_arm_link:
-                forearm_link:
-                  wrist_1_link:
-                    wrist_2_link:
-                      wrist_3_link:
-                        ee_link:
-                          {}
-                        tool0:
-                          eff_frame:
-                            UR10_EOAT_rotate:
-                              UR10_EOAT:
-                                {}
-                            adapter_tube:
-                              bracket:
-                                blending_tool:
-                                  {}
-                                chuck_tip_frame:
-                                  tcp_frame:
-                                    {}
-                                ensenso:
-                                  {}
-                                ensenso_sensor_optical_frame:
-                                  kinect2_move_frame:
-                                    camera_optical_frame:
-                                      {}
-                                    kinect2_link:
-                                      kinect2_rgb_optical_frame:
-                                        kinect2_ir_optical_frame:
-                                          {}
-                                keyence:
-                                  {}
-                                keyence_sensor_optical_frame:
-                                  {}
-                                keyence_tcp_frame:
-                                  {}
-          table:
-            {}
-          toolstation:
-            {}
+        {}
       Update Interval: 0
-      Value: true
+      Value: false
     - Alpha: 1
       Arrow Length: 0.300000012
       Axes Length: 0.00499999989
@@ -789,7 +679,6 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Default Light: true
     Fixed Frame: world_frame
     Frame Rate: 30
   Name: root
@@ -805,7 +694,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 1.79479456
+      Distance: 7.20521498
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -820,26 +709,28 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: -0.0952036828
+      Pitch: -0.135205984
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.23955584
+      Yaw: 4.56958771
     Saved: ~
 Window Geometry:
+  BlendingPanel:
+    collapsed: false
   Displays:
     collapsed: false
-  Height: 1159
+  Height: 744
   Hide Left Dock: false
   Hide Right Dock: true
   MotionPlanning:
     collapsed: false
   MotionPlanning - Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002b800000441fc0200000006fc000000280000025d0000024600fffffffa000000000100000003fb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff000001fe00fffffffb000000100044006900730070006c0061007900730000000000ffffffff0000016a00fffffffb0000001a0042006c0065006e00640069006e006700500061006e0065006c0000000000000001ba0000000000000000fb0000001a0042006c0065006e00640069006e006700500061006e0065006c0000000448000000160000000000000000fb0000000a005600690065007700730000000292000000b0000000b000fffffffb000000120020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000028b000001de000001cc00fffffffb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000004a00ffffff000004810000044100000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002b8000002a2fc0200000005fb0000001a0042006c0065006e00640069006e006700500061006e0065006c000000044800000016000001fc00fffffffb0000000a005600690065007700730000000292000000b0000000b000fffffffb000000120020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000004a00fffffffc00000028000002a2000002640100001dfa000000010100000005fb0000001a0042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff0000000000000000fb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff000001fe00fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000000ffffffff000002b800fffffffb000000100044006900730070006c0061007900730100000000ffffffff0000016a00fffffffb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0000000000000001fe000001fe00ffffff00000257000002a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   RobotBlendingPanel:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1855
+  Width: 1301
   X: 65
-  Y: 34
+  Y: 24

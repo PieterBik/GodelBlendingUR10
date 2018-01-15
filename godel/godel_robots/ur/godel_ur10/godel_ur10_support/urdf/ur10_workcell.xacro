@@ -31,21 +31,30 @@
 
   <xacro:macro name="swri_demo_cell" params="prefix">
 
-  <link name="table">
+  <link name="tableTop">
         <visual>
             <geometry>
-                <box size="2.0 0.70 0.860"/>
+                <box size="2.0 0.04 0.860"/>
             </geometry>
-            <origin xyz="0.0 -0.225 0.43" rpy="0 0 0" />
+            <origin xyz="0.0 -0.225 0.76" rpy="0 0 0" />
             <material name="yellow" />
         </visual>
-
         <collision>
             <geometry>
                 <box size="2.0 0.70 0.860"/>
             </geometry>
             <origin xyz="0.0 -0.225 0.44" rpy="0 0 0.0" />
         </collision>
+  </link>
+
+  <link name="tableBottom">
+        <visual>
+            <geometry>
+                <box size="2.0 0.66 0.860"/>
+            </geometry>
+            <origin xyz="0.0 -0.225 0.41" rpy="0 0 0" />
+            <material name="blue" />
+        </visual>
   </link>
   <link name="back_wall">
         <visual>

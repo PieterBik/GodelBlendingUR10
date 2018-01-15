@@ -5,7 +5,7 @@
 
 
   <material name="blue">
-    <color rgba="0 0 0.8 1"/>
+    <color rgba="0.015 0.341 0.858 1"/>
   </material>
   <material name="white">
     <color rgba="1 1 1 1"/>
@@ -14,7 +14,7 @@
   <color rgba="0.1 0.1 0.1 1"/>
     </material>
   <material name="gray">
-    <color rgba="0.7 0.7 0.7 1"/>
+    <color rgba="0.8 0.8 0.8 1"/>
   </material>
   <material name="yellow">
     <color rgba="0.9 0.8 0.3 1"/>
@@ -23,24 +23,46 @@
     <texture filename="package://godel_ur10_support/urdf/textures/smr-poster.png"/>
   </material>
 
+  <material name="wood">
+    <texture filename="package://godel_ur10_support/urdf/textures/WoodTexture.jpg"/>
+  </material>
   <link name="world_frame"/>
 
-  <link name="table">
-        <visual>
-            <geometry>
-                <box size="2.0 0.70 0.860"/>
-            </geometry>
-            <origin xyz="0.0 0.0 0.43" rpy="0 0 0" />
-            <material name="yellow" />
-        </visual>
+  <link name="tableTop">
+          <visual>
+              <geometry>
+                  <box size="2.0 0.70 0.04"/>
+              </geometry>
+              <origin xyz="0 0 0.43" rpy="0 0 0" />
+              <material name="wood" />
+          </visual>
+          <collision>
+              <geometry>
+                  <box size="2.0 0.70 0.86"/>
+              </geometry>
+              <origin xyz="0 0 0.03" rpy="0 0 0.0" />
+          </collision>
+    </link>
 
-        <collision>
-            <geometry>
-                <box size="2.0 0.70 0.860"/>
-            </geometry>
-            <origin xyz="0.0 0.0 0.44" rpy="0 0 0.0" />
-        </collision>
-  </link>
+    <link name="tableBottom">
+          <visual>
+              <geometry>
+                  <box size="1.96 0.66 0.82"/>
+              </geometry>
+              <origin xyz="0 0 0" rpy="0 0 0" />
+              <material name="blue" />
+          </visual>
+    </link>
+
+    <link name="robotbase">
+          <visual>
+              <geometry>
+                  <box size="0.18 0.25 0.02"/>
+              </geometry>
+              <origin xyz="0 0 0" rpy="0 0 0" />
+              <material name="gray" />
+          </visual>
+    </link>
     <link name="toolstation">
           <collision>
               <geometry>
@@ -95,11 +117,24 @@
     <origin xyz="0.91 0 0.880" rpy="0 0 0"/>
   </joint>
 
-  <joint name="world_to_table" type="fixed">
-          <parent link="world_frame" />
-          <child link ="table" />
-          <origin xyz="0 0 0" rpy="0 0 0" />
-  </joint>
+    <joint name="world_to_tableBottom" type="fixed">
+            <parent link="world_frame" />
+            <child link ="tableBottom" />
+            <origin xyz="0.0 -0.0 0.41" rpy="0 0 0" />
+    </joint>
+
+    <joint name="world_to_tableTop" type="fixed">
+            <parent link="world_frame" />
+            <child link ="tableTop" />
+            <origin xyz="0.0 0.0 0.41" rpy="0 0 0" />
+    </joint>
+
+    <joint name="world_to_robotbase" type="fixed">
+            <parent link="world_frame" />
+            <child link ="robotbase" />
+            <origin xyz="0.91 0 0.87" rpy="0 0 0" />
+    </joint>
+
   <joint name="world_to_toolstation" type="fixed">
           <parent link="world_frame" />
           <child link ="toolstation" />
@@ -114,7 +149,7 @@
   <joint name="world_to_smr-poster" type="fixed">
           <parent link="back_wall" />
           <child link ="smr-poster" />
-          <origin xyz="0 -0.051 0.30" rpy="0 -1.57 1.57" />
+          <origin xyz="0 -0.055 0.30" rpy="0 -1.57 1.57" />
   </joint>
 
 </robot>
