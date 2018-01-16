@@ -1,0 +1,8 @@
+#goal definition
+int32 type
+---
+#result definition
+bool sequence
+---
+#feedback
+int32[] sequence

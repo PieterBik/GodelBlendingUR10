@@ -10,15 +10,17 @@
 #include <cstdio>
 
 
-godel_grinder::GodelGrinderService::GodelGrinderService(ros::NodeHandle& nh) : nh_(nh), move_group("manipulator") {
+godel_grinder::GodelGrinderService::GodelGrinderService(ros::NodeHandle& nh) : nh_(nh), move_group("manipulator"),
+                                                                               as_(nh, "change_disks",
+                                                                                   boost::bind(&GodelGrinderService::exec, this, _1),
+                                                                                   false) {
 
 
-    this->service = nh.advertiseService("change_disks", &GodelGrinderService::changeDisks, this);
+    this->as_.start();
     this->pub = nh.advertise<std_msgs::UInt16>("Motor_driver", 1000);
 }
 
-bool godel_grinder::GodelGrinderService::changeDisks(godel_msgs::GrinderStation::Request  &req,
-          godel_msgs::GrinderStation::Response &res) {
+void godel_grinder::GodelGrinderService::exec(const godel_msgs::GrinderStationGoalConstPtr &goal) {
 
     ROS_ERROR("STARTING GRINDER CHANGE");
     //step 1: remove nut
@@ -37,8 +39,8 @@ bool godel_grinder::GodelGrinderService::changeDisks(godel_msgs::GrinderStation:
     screw();
     wait();
 
-
-    return true;
+    this->result.sequence = true;
+    this->as_.setSucceeded(this->result);
 }
 
 void godel_grinder::GodelGrinderService::moveToPosition(std::string p) {

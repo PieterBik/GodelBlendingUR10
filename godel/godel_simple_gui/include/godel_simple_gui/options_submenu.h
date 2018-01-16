@@ -10,7 +10,9 @@
 #include "godel_simple_gui/options/path_planning_configuration.h"
 
 #include <ros/ros.h>
-#include <godel_msgs/GrinderStation.h>
+#include <godel_msgs/GrinderStationAction.h>
+#include <actionlib/client/simple_action_client.h>
+#include <actionlib/client/terminal_state.h>
 
 namespace Ui
 {
@@ -54,7 +56,7 @@ private:
   SurfaceDetectionConfigWidget* surface_detection_;
   PathPlanningConfigWidget* path_planning_params_;
   ScanPlanConfigWidget* scan_params_;
-    ros::ServiceClient grinderClient;
+    actionlib::SimpleActionClient<godel_msgs::GrinderStationAction> ac;
     ros::NodeHandle nh_;
 };
 

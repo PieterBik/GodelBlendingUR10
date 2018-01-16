@@ -26,6 +26,7 @@ add_action_files(
     ProcessExecution.action
     ProcessPlanning.action
     SelectMotionPlan.action
+        GrinderStation.action
 )
 
 

@@ -2,7 +2,8 @@
 #define GODEL_GRINDER_SERVICE_H
 
 #include <ros/ros.h>
-#include <godel_msgs/GrinderStation.h>
+#include <godel_msgs/GrinderStationAction.h>
+#include <actionlib/server/simple_action_server.h>
 #include <std_msgs/UInt16.h>
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <string>
@@ -15,9 +16,6 @@ namespace godel_grinder
     public:
         GodelGrinderService(ros::NodeHandle& nh);
 
-        bool changeDisks(godel_msgs::GrinderStation::Request  &req,
-                         godel_msgs::GrinderStation::Response &res);
-
         void moveToPosition(std::string p);
         void wait();
 
@@ -26,9 +24,12 @@ namespace godel_grinder
 
     private:
         ros::NodeHandle nh_;
-        ros::ServiceServer service;
+        actionlib::SimpleActionServer<godel_msgs::GrinderStationAction> as_;
         moveit::planning_interface::MoveGroupInterface move_group;
         ros::Publisher pub;
+
+        godel_msgs::GrinderStationResult result;
+        void exec(const godel_msgs::GrinderStationGoalConstPtr &goal);
     };
 }
 
