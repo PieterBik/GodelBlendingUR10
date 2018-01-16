@@ -18,6 +18,8 @@ namespace godel_process_execution {
 
         bool simulateProcess(const godel_msgs::ProcessExecutionGoalConstPtr &goal);
 
+        void moveToStation();
+
     private:
         ros::NodeHandle nh_;
         ros::ServiceClient real_client_;

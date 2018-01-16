@@ -24,7 +24,7 @@ godel_process_execution::BlendProcessService::BlendProcessService(ros::NodeHandl
                                                                                                                             _1),
                                                                                                                     false) {
 
-        // Simulation Server
+    // Simulation Server
     sim_client_ = nh_.serviceClient<industrial_robot_simulator_service::SimulateTrajectory>(
             SIMULATION_SERVICE_NAME);
     // Trajectory Execution Service
@@ -65,9 +65,9 @@ bool godel_process_execution::BlendProcessService::executeProcess(
     }
 
     ROS_ERROR("Connecting to grinder");
-    arduino.open("/dev/ttyACM0",  std::ios_base::out | std::ios_base::in);
+    arduino.open("/dev/ttyACM0", std::ios_base::out | std::ios_base::in);
     sleep(2.5);
-    if(arduino.is_open()) {
+    if (arduino.is_open()) {
         ROS_ERROR("Turning on grinder");
         arduino << 1 << std::endl;
     } else {
@@ -77,7 +77,7 @@ bool godel_process_execution::BlendProcessService::executeProcess(
     if (!real_client_.call(srv_process)) {
         ROS_ERROR("Execution client unavailable or unable to execute process trajectory.");
 
-        if(arduino.is_open()) {
+        if (arduino.is_open()) {
             ROS_ERROR("Turning grinder off");
             arduino << "0" << std::endl;
             ROS_ERROR("Closing connection");
@@ -90,7 +90,7 @@ bool godel_process_execution::BlendProcessService::executeProcess(
     if (!real_client_.call(srv_depart)) {
         ROS_ERROR("Execution client unavailable or unable to execute departure trajectory.");
 
-        if(arduino.is_open()) {
+        if (arduino.is_open()) {
             ROS_ERROR("Turning grinder off");
             arduino << "0" << std::endl;
             ROS_ERROR("Closing connection");
@@ -100,7 +100,7 @@ bool godel_process_execution::BlendProcessService::executeProcess(
         return false;
     }
 
-    if(arduino.is_open()) {
+    if (arduino.is_open()) {
         ROS_ERROR("Turning grinder off");
         arduino << "0" << std::endl;
         ROS_ERROR("Closing connection");
