@@ -8,7 +8,7 @@
 int main(int argc, char** argv)
 {
     ros::init(argc, argv, "godel_grinder_service_node");
-
+    ros::AsyncSpinner asymc_spinner(1);
     ros::NodeHandle nh;
 
     godel_grinder::GodelGrinderService s(nh);

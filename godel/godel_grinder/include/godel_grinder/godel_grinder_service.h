@@ -7,6 +7,7 @@
 #include <std_msgs/UInt16.h>
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <string>
+#include <fstream>
 
 namespace godel_grinder
 {
@@ -27,6 +28,8 @@ namespace godel_grinder
         actionlib::SimpleActionServer<godel_msgs::GrinderStationAction> as_;
         moveit::planning_interface::MoveGroupInterface move_group;
         ros::Publisher pub;
+
+        std::ofstream arduino;
 
         godel_msgs::GrinderStationResult result;
         void exec(const godel_msgs::GrinderStationGoalConstPtr &goal);

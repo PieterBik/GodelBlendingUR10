@@ -64,12 +64,12 @@
           </visual>
     </link>
     <link name="toolstation">
-          <collision>
-              <geometry>
-                  <box size="1.0 0.10 2.0"/>
-              </geometry>
-              <origin xyz="0.0 0.0 0.0" rpy="0 0 0.0" />
-          </collision>
+          <visual>
+            <geometry>
+                <mesh filename="package://godel_ur10_support/meshes/grinder_system.stl"/>
+            </geometry>
+            <origin xyz="0.0 -1.4 0.0" rpy="0 0 1.57" />
+          </visual>
     </link>
 
   <link name="back_wall">
@@ -155,7 +155,7 @@
   <joint name="world_to_toolstation" type="fixed">
           <parent link="world_frame" />
           <child link ="toolstation" />
-          <origin xyz="0.5 -1.0 1.0" rpy="0 0 0" />
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0.0" />
   </joint>
   <joint name="world_to_back_wall" type="fixed">
           <parent link="world_frame" />

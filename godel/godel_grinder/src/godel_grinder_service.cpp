@@ -23,21 +23,50 @@ godel_grinder::GodelGrinderService::GodelGrinderService(ros::NodeHandle& nh) : n
 void godel_grinder::GodelGrinderService::exec(const godel_msgs::GrinderStationGoalConstPtr &goal) {
 
     ROS_ERROR("STARTING GRINDER CHANGE");
-    //step 1: remove nut
-    moveToPosition("moveToScrewStation");
-    unscrew();
-    wait();
 
+    // HOME
+    moveToPosition("disk_swap_home");
+
+    //step 1: remove nut
+    moveToPosition("underneath_mounter");
+    moveToPosition("on_mounter");
+    unscrew();
+    //wait();
+    moveToPosition("underneath_mounter");
+    moveToPosition("disk_swap_home");
+
+    //step 2: remove the disk
+    moveToPosition("drop_disk");
+    moveToPosition("disk_swap_home");
+
+    //step 3: acquire a disk
+    moveToPosition("below_disk");
+    moveToPosition("mid_disk");
+    moveToPosition("high_disk");
+    moveToPosition("away_disk");
+    moveToPosition("disk_swap_home");
+
+
+
+    //step 4: tighten nut
+    moveToPosition("underneath_mounter");
+    moveToPosition("on_mounter");
+    screw();
+    //wait();
+    moveToPosition("underneath_mounter");
+    moveToPosition("disk_swap_home");
+
+    /*
     //step 2: remove the disk
     moveToPosition("moveToRemoveDisk");
 
-    //step 3: acquire a disk
+
     moveToPosition("moveToDiskChange");
 
     //step 4: acquire nut
     moveToPosition("moveToScrewStation");
     screw();
-    wait();
+    wait(); */
 
     this->result.sequence = true;
     this->as_.setSucceeded(this->result);
@@ -54,15 +83,55 @@ void godel_grinder::GodelGrinderService::wait() {
 }
 
 void godel_grinder::GodelGrinderService::screw() {
-    std_msgs::UInt16 msg;
-    msg.data = 0;
 
-    this->pub.publish(msg);
-}
+    ROS_ERROR("Connecting to grinder on: /dev/grinder_switch_arduino");
+    arduino.open("/dev/grinder_switch_arduino",  std::ios_base::out | std::ios_base::in);
+    sleep(2.5);
+    if(arduino.is_open()) {
+        ROS_ERROR("Turning on solonoid");
+        arduino << 3 << std::endl;
+        sleep(0.5);
+    } else {
+        ROS_ERROR("Cannot connect to grinder");
+    }
 
-void godel_grinder::GodelGrinderService::unscrew() {
     std_msgs::UInt16 msg;
     msg.data = 1;
 
     this->pub.publish(msg);
+    wait();
+
+    if(arduino.is_open()) {
+        ROS_ERROR("Turning solonoid off");
+        arduino << 2 << std::endl;
+        ROS_ERROR("Closing connection");
+        arduino.close();
+    }
+}
+
+void godel_grinder::GodelGrinderService::unscrew() {
+
+    ROS_ERROR("Connecting to grinder on: /dev/grinder_switch_arduino");
+    arduino.open("/dev/grinder_switch_arduino",  std::ios_base::out | std::ios_base::in);
+    sleep(2.5);
+    if(arduino.is_open()) {
+        ROS_ERROR("Turning on solonoid");
+        arduino << 3 << std::endl;
+        sleep(0.5);
+    } else {
+        ROS_ERROR("Cannot connect to grinder");
+    }
+
+    std_msgs::UInt16 msg;
+    msg.data = 0;
+
+    this->pub.publish(msg);
+    wait();
+
+    if(arduino.is_open()) {
+        ROS_ERROR("Turning solonoid off");
+        arduino << 2 << std::endl;
+        ROS_ERROR("Closing connection");
+        arduino.close();
+    }
 }
