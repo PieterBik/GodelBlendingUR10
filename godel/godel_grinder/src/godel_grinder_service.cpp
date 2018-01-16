@@ -50,7 +50,7 @@ void godel_grinder::GodelGrinderService::moveToPosition(std::string p) {
 
 
 void godel_grinder::GodelGrinderService::wait() {
-    std::this_thread::sleep_for(std::chrono::milliseconds(21000));
+    ros::Duration(21).sleep();
 }
 
 void godel_grinder::GodelGrinderService::screw() {
