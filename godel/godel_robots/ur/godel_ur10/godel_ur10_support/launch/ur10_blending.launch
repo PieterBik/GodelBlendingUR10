@@ -111,6 +111,7 @@
   <rosparam command="load" file="$(find path_planning_plugins)/config/path_planning.yaml" />
   <rosparam command="load" file="$(find godel_process_planning)/config/process_planning.yaml" />
 
-  <node name="godel_grinder" pkg="godel_grinder" type="godel_grinder_node"/>
+  <node name="godel_grinder" pkg="godel_grinder" type="godel_grinder_node" output="screen"/>
+  <node name="motordriver_arduino" pkg="rosserial_python" type="serial_node.py" args="/dev/motordriver_arduino" output="screen"/>
 
 </launch>
