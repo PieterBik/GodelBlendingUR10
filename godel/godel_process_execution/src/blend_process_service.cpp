@@ -64,12 +64,13 @@ bool godel_process_execution::BlendProcessService::executeProcess(
         return false;
     }
 
-    ROS_ERROR("Connecting to grinder");
-    arduino.open("/dev/ttyACM0",  std::ios_base::out | std::ios_base::in);
+    ROS_ERROR("Connecting to grinder on: /dev/grinder_switch_arduino");
+    arduino.open("/dev/grinder_switch_arduino",  std::ios_base::out | std::ios_base::in);
     sleep(2.5);
     if(arduino.is_open()) {
         ROS_ERROR("Turning on grinder");
         arduino << 1 << std::endl;
+        sleep(0.5);
     } else {
         ROS_ERROR("Cannot connect to grinder");
     }
@@ -87,6 +88,13 @@ bool godel_process_execution::BlendProcessService::executeProcess(
         return false;
     }
 
+    if(arduino.is_open()) {
+        ROS_ERROR("Turning grinder off");
+        arduino << "0" << std::endl;
+        ROS_ERROR("Closing connection");
+        arduino.close();
+    }
+
     if (!real_client_.call(srv_depart)) {
         ROS_ERROR("Execution client unavailable or unable to execute departure trajectory.");
 
@@ -100,12 +108,7 @@ bool godel_process_execution::BlendProcessService::executeProcess(
         return false;
     }
 
-    if(arduino.is_open()) {
-        ROS_ERROR("Turning grinder off");
-        arduino << "0" << std::endl;
-        ROS_ERROR("Closing connection");
-        arduino.close();
-    }
+
 
     return true;
 }

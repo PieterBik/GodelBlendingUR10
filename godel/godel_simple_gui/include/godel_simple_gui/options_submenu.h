@@ -2,11 +2,17 @@
 #define OPTIONS_SUBMENU_H
 
 #include <QWidget>
+#include <QPushButton>
 
 #include "godel_simple_gui/options/robot_scan_configuration.h"
 #include "godel_simple_gui/options/surface_detection_configuration.h"
 #include "godel_simple_gui/options/scan_tool_configuration.h"
 #include "godel_simple_gui/options/path_planning_configuration.h"
+
+#include <ros/ros.h>
+#include <godel_msgs/GrinderStationAction.h>
+#include <actionlib/client/simple_action_client.h>
+#include <actionlib/client/terminal_state.h>
 
 namespace Ui
 {
@@ -36,6 +42,9 @@ public:
   const godel_msgs::ScanPlanParameters& scanParams() const;
   void setScanParams(const godel_msgs::ScanPlanParameters& params);
 
+public Q_SLOTS:
+    void moveGrinderToStation();
+
 Q_SIGNALS:
   void saveRequested();
 
@@ -47,6 +56,8 @@ private:
   SurfaceDetectionConfigWidget* surface_detection_;
   PathPlanningConfigWidget* path_planning_params_;
   ScanPlanConfigWidget* scan_params_;
+    actionlib::SimpleActionClient<godel_msgs::GrinderStationAction> ac;
+    ros::NodeHandle nh_;
 };
 
 } // end namespace godel_simple_gui

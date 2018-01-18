@@ -20,14 +20,9 @@
         <arg name="load_robot_description" value="true" />
     </include>
 
-    <!-- run the robot simulator and action interface nodes -->
-    <group if="$(arg sim)">
-        <include file="$(find industrial_robot_simulator)/launch/robot_interface_simulator.launch" />
-    </group>
-
 
     <!-- publish the robot state (tf transforms) -->
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->
 
     <include file="$(find ur10_moveit_config)/launch/move_group.launch">
         <arg name="publish_monitored_planning_scene" value="true" />

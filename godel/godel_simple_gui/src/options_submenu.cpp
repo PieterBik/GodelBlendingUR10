@@ -4,7 +4,7 @@
 
 #include "godel_simple_gui/options/robot_scan_configuration.h"
 
-godel_simple_gui::OptionsSubmenu::OptionsSubmenu(QWidget* parent) : QWidget(parent)
+godel_simple_gui::OptionsSubmenu::OptionsSubmenu(QWidget* parent) : QWidget(parent), ac("change_disks", true)
 {
   ui_ = new Ui::OptionsSubmenu();
   ui_->setupUi(this);
@@ -22,10 +22,37 @@ godel_simple_gui::OptionsSubmenu::OptionsSubmenu(QWidget* parent) : QWidget(pare
   scan_params_ = new ScanPlanConfigWidget(godel_msgs::ScanPlanParameters());
   connect(ui_->pushButtonQAOptions, SIGNAL(clicked()), scan_params_, SLOT(show()));
 
+  //// Grinder to station
+  connect(ui_->pushButtonGrinder, SIGNAL(released()), this, SLOT (moveGrinderToStation()));
+
   connect(robot_scan_, SIGNAL(parameters_save_requested()), this, SIGNAL(saveRequested()));
   connect(surface_detection_, SIGNAL(parameters_save_requested()), this, SIGNAL(saveRequested()));
   connect(path_planning_params_, SIGNAL(parameters_save_requested()), this, SIGNAL(saveRequested()));
   connect(scan_params_, SIGNAL(parameters_save_requested()), this, SIGNAL(saveRequested()));
+}
+
+void godel_simple_gui::OptionsSubmenu::moveGrinderToStation() {
+
+  ROS_ERROR("CALLING GRINDER ACTION");
+
+    godel_msgs::GrinderStationGoal goal;
+    goal.type = 1;
+
+    ac.waitForServer();
+    ac.sendGoal(goal);
+
+    bool finished_before_timeout = ac.waitForResult(ros::Duration(30.0));
+
+    if (finished_before_timeout)
+    {
+        actionlib::SimpleClientGoalState state = ac.getState();
+        ROS_INFO("Action finished: %s",state.toString().c_str());
+    }
+    else {
+        ROS_INFO("Action did not finish before the time out.");
+    }
+
+
 }
 
 const godel_msgs::RobotScanParameters& godel_simple_gui::OptionsSubmenu::robotScanParams() const

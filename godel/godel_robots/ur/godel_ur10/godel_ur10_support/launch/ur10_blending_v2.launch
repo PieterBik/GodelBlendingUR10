@@ -39,6 +39,7 @@
 
     <node name="scan_process_execution" pkg="godel_process_execution" type="keyence_process_service_node"/>
   </group>
+
   <!-- Bring up simulated robot that can be visualized under the tf namespace 'simulation'
        Allows for previewing paths generated before execution. -->
   <include file="$(find industrial_robot_simulator_service)/launch/start_simulation_server.launch"/>

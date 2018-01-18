@@ -17,7 +17,7 @@
   <xacro:property name="kinect_mount_z" value="0.15"/>
 
   <xacro:property name="blend_tcp_x" value="0.0"/>
-  <xacro:property name="blend_tcp_y" value="0.0"/>
+  <xacro:property name="blend_tcp_y" value="-0.05"/>
   <xacro:property name="blend_tcp_z" value="0.04"/> <!-- TBD -->
 
   <xacro:property name="chuck_tcp_x" value="0.0"/>
@@ -117,7 +117,7 @@
     <joint name="chuck_to_blend_tcp_frame" type="fixed">
         <parent link="chuck_tip_frame"/>
         <child link="tcp_frame"/>
-        <origin xyz="${blend_tcp_x} ${blend_tcp_y} ${blend_tcp_z}" rpy="0 0 0"/>
+        <origin xyz="${blend_tcp_x} ${blend_tcp_y} ${blend_tcp_z}" rpy="0.1745 0 0"/>
     </joint>
 
     <!--Frames for the keyence profilometer-->

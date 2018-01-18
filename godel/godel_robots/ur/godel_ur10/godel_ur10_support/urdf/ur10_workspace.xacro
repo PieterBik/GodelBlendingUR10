@@ -63,15 +63,14 @@
               <material name="gray" />
           </visual>
     </link>
-    <link name="toolstation">
-          <collision>
-              <geometry>
-                  <box size="1.0 0.10 2.0"/>
-              </geometry>
-              <origin xyz="0.0 0.0 0.0" rpy="0 0 0.0" />
-          </collision>
+    <link name="toolstation_side">
+          <visual>
+            <geometry>
+                <mesh filename="package://godel_ur10_support/meshes/grinder_system.stl"/>
+            </geometry>
+            <origin xyz="0.0 -1.4 0.0" rpy="0 0 1.57" />
+          </visual>
     </link>
-
   <link name="back_wall">
         <visual>
             <geometry>
@@ -84,6 +83,23 @@
         <collision>
             <geometry>
                 <box size="4.0 0.10 3.0"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </collision>
+  </link>
+
+  <link name="side_wall">
+        <visual>
+            <geometry>
+                <box size="0.10 1.0 3.0"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="gray" />
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.1 1.0 3.0"/>
             </geometry>
             <origin xyz="0 0 0" rpy="0 0 0" />
         </collision>
@@ -135,17 +151,21 @@
             <origin xyz="0.91 0 0.87" rpy="0 0 0" />
     </joint>
 
-  <joint name="world_to_toolstation" type="fixed">
+  <joint name="world_to_toolstation_side" type="fixed">
           <parent link="world_frame" />
-          <child link ="toolstation" />
-          <origin xyz="0.5 -1.0 1.0" rpy="0 0 0" />
+          <child link ="toolstation_side" />
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0.0" />
   </joint>
   <joint name="world_to_back_wall" type="fixed">
           <parent link="world_frame" />
           <child link ="back_wall" />
           <origin xyz="0.0 0.40 1.5" rpy="0 0 0" />
   </joint>
-
+  <joint name="world_to_side_wall" type="fixed">
+          <parent link="world_frame" />
+          <child link ="side_wall" />
+          <origin xyz="1.70 -0.15 1.5" rpy="0 0 0" />
+  </joint>
   <joint name="world_to_smr-poster" type="fixed">
           <parent link="back_wall" />
           <child link ="smr-poster" />

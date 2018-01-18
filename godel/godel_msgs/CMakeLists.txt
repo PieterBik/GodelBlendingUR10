@@ -26,6 +26,7 @@ add_action_files(
     ProcessExecution.action
     ProcessPlanning.action
     SelectMotionPlan.action
+        GrinderStation.action
 )
 
 
@@ -61,6 +62,7 @@ add_service_files(
   SurfaceBlendingParameters.srv
   TrajectoryExecution.srv
   TrajectoryPlanning.srv
+        GrinderStation.srv
 )
 
 ## Generate added messages and services with any dependencies listed here
