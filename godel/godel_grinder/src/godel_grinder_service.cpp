@@ -90,7 +90,7 @@ void godel_grinder::GodelGrinderService::moveToPosition(std::string p) {
 
 
 void godel_grinder::GodelGrinderService::wait() {
-    ros::Duration(21).sleep();
+    ros::Duration(16).sleep();
 }
 
 void godel_grinder::GodelGrinderService::screw() {
