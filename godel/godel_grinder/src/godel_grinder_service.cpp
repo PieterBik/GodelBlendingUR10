@@ -29,28 +29,39 @@ void godel_grinder::GodelGrinderService::exec(const godel_msgs::GrinderStationGo
 
     //step 1: remove nut
     moveToPosition("underneath_mounter");
+    this->move_group.setMaxVelocityScalingFactor(0.01);
     moveToPosition("on_mounter");
     unscrew();
-    //wait();
     moveToPosition("underneath_mounter");
+    this->move_group.setMaxVelocityScalingFactor(1.0);
     moveToPosition("disk_swap_home");
 
     //step 2: remove the disk
     moveToPosition("drop_disk");
     moveToPosition("disk_swap_home");
 
+
+
     //step 3: acquire a disk
     moveToPosition("below_disk");
+    this->move_group.setMaxVelocityScalingFactor(0.25);
     moveToPosition("mid_disk");
+    this->move_group.setMaxVelocityScalingFactor(0.01);
     moveToPosition("high_disk");
+    this->move_group.setMaxVelocityScalingFactor(0.5);
     moveToPosition("away_disk");
+    this->move_group.setMaxVelocityScalingFactor(1.0);
     moveToPosition("disk_swap_home");
+
+
 
 
 
     //step 4: tighten nut
     moveToPosition("underneath_mounter");
+    this->move_group.setMaxVelocityScalingFactor(0.01);
     moveToPosition("on_mounter");
+    this->move_group.setMaxVelocityScalingFactor(1.0);
     screw();
     //wait();
     moveToPosition("underneath_mounter");
