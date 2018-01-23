@@ -41,7 +41,7 @@
   </group>
   <!-- Bring up simulated robot that can be visualized under the tf namespace 'simulation'
        Allows for previewing paths generated before execution. -->
-
+  <include file="$(find industrial_robot_simulator_service)/launch/start_simulation_server.launch"/>
 
   <!-- Brings up the core blending service: this includes the tool path planners
        for both the blender and the laser scanner. -->
@@ -107,6 +107,7 @@
   </include>
 
   <node pkg="tf" type="static_transform_publisher" name="ensenso_static_tf" args="0.10 0 2.28 0 -1.57 0 kinect2_move_frame camera_optical_frame 100" />
+
   <rosparam command="load" file="$(find meshing_plugins)/config/meshing.yaml" />
   <rosparam command="load" file="$(find path_planning_plugins)/config/path_planning.yaml" />
   <rosparam command="load" file="$(find godel_process_planning)/config/process_planning.yaml" />

@@ -44,7 +44,7 @@ void godel_grinder::GodelGrinderService::exec(const godel_msgs::GrinderStationGo
 
     //step 3: acquire a disk
     moveToPosition("below_disk");
-    ->move_group.setMaxVelocityScalingFactor(0.25);
+    this->move_group.setMaxVelocityScalingFactor(0.25);
     moveToPosition("mid_disk");
     this->move_group.setMaxVelocityScalingFactor(0.01);
     moveToPosition("high_disk");
@@ -90,7 +90,7 @@ void godel_grinder::GodelGrinderService::moveToPosition(std::string p) {
 
 
 void godel_grinder::GodelGrinderService::wait() {
-    ros::Duration(21).sleep();
+    ros::Duration(16).sleep();
 }
 
 void godel_grinder::GodelGrinderService::screw() {
