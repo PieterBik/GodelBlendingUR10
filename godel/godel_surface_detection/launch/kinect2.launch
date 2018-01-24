@@ -9,7 +9,7 @@
     <arg name="use_nodelet" value="true" />
     <arg name="queue_size" value="5" />
   </include>
-  <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="-0.08 0.08 0.228 1.57079 -0.78539 0  kinect2_move_frame kinect2_link 100" />
+  <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="-0.08 0.08 0.223 1.57079 -0.78539 0  kinect2_move_frame kinect2_link 100" />
 
   <group ns="/pcl_filters">
       <!-- PCL Manager -->
@@ -31,7 +31,7 @@
         <rosparam>
           filter_field_name: y
           filter_limit_min: -0.3
-          filter_limit_max: 0.4
+          filter_limit_max: 0.55
         </rosparam>
       </node>
 

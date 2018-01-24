@@ -66,7 +66,7 @@ void godel_grinder::GodelGrinderService::exec(const godel_msgs::GrinderStationGo
     //wait();
     moveToPosition("underneath_mounter");
     moveToPosition("disk_swap_home");
-
+    moveToPosition("scan_position");
     /*
     //step 2: remove the disk
     moveToPosition("moveToRemoveDisk");
