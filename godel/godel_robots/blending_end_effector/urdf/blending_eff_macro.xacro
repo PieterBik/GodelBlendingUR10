@@ -139,6 +139,8 @@
     <!--Frames related to the motion of the camera-->
     <link name="ensenso_sensor_optical_frame"/>
     <link name="kinect2_move_frame"/>
+    <link name="kinect2_between_move_frame"/>
+    <link name="kinect2_link_move_frame"/>
 
     <joint name="bracket_to_ensenso_sof" type="fixed">
         <parent link="bracket"/>
@@ -151,6 +153,20 @@
       <child link="kinect2_move_frame"/>
       <origin rpy="0 -${half_pi} 0"/>
     </joint>
+
+    <joint name="kinect_link_between_move_frame_join" type="fixed">
+              <parent link="kinect2_move_frame"/>
+              <child link="kinect2_between_move_frame"/>
+              <origin xyz="-0.08 0.08 0.228" rpy="2.35619 0 0"/>
+        </joint>
+
+
+    <joint name="kinect_link_move_frame_join" type="fixed">
+          <parent link="kinect2_between_move_frame"/>
+          <child link="kinect2_link_move_frame"/>
+          <origin xyz="0 0 0" rpy="0 0 1.570796"/>
+    </joint>
+
 
   </xacro:macro>
 </robot>

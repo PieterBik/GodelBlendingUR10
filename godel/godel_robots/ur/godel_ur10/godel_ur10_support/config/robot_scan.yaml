@@ -1,8 +1,8 @@
 robot_scan:
-  group_name: manipulator
-  home_position: scan_position
+  group_name: manipulator_asus
+  home_position: home_asus
   world_frame: world_frame
-  tcp_frame: tool0
+  tcp_frame: kinect2_link_move_frame
   tcp_to_cam_pose:
     trans:
       x: 0

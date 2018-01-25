@@ -4,11 +4,12 @@ import rospy
 from socket import *
 import sys
 from sensor_msgs.msg import JointState
+
 import json
 
 #settings for the service
-host = "127.0.0.1"  # set to IP address of target computer
-port = 13000
+host = "10.42.0.198"  # set to IP address of target computer
+port = 1212
 addr = (host, port)
 UDPSock = socket(AF_INET, SOCK_DGRAM)
 

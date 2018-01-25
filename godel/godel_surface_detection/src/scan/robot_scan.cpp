@@ -54,10 +54,10 @@ const double RobotScan::MIN_JOINT_VELOCITY = 0.01f;      // rad/sect
 RobotScan::RobotScan()
 {
 
-  params_.group_name = "manipulator";
-  params_.home_position = "scan_position";
+  params_.group_name = "manipulator_asus";
+  params_.home_position = "home_asus";
   params_.world_frame = "world_frame";
-  params_.tcp_frame = "tool0";
+  params_.tcp_frame = "kinect2_link_move_frame";
   tf::poseTFToMsg(tf::Transform::getIdentity(), params_.tcp_to_cam_pose);
   tf::poseTFToMsg(tf::Transform::getIdentity(), params_.world_to_obj_pose);
   params_.cam_to_obj_zoffset = 0;

@@ -7,12 +7,13 @@ Panels:
         - /EligibleSurfaces1
         - /Tool Path Preview1/Namespaces1
         - /TF1/Frames1
+        - /MotionPlanning1
         - /MotionPlanning1/Scene Robot1
         - /MotionPlanning1/Planning Request1
         - /MotionPlanning1/Planning Metrics1
         - /MotionPlanning1/Planned Path1
       Splitter Ratio: 0.5
-    Tree Height: 337
+    Tree Height: 501
   - Class: godel_plugins/RobotBlendingPanel
     Name: RobotBlendingPanel
     TextEntry: test_field
@@ -164,6 +165,14 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
         keyence_tcp_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        kinect2_between_move_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        kinect2_link_move_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -327,6 +336,14 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        kinect2_between_move_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        kinect2_link_move_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         kinect2_move_frame:
           Alpha: 1
           Show Axes: false
@@ -439,8 +456,7 @@ Visualization Manager:
       Marker Topic: /tool_path_preview
       Name: Tool Path Preview
       Namespaces:
-        blend_paths: true
-        scan_paths: false
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/TF
@@ -606,6 +622,14 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
+          kinect2_between_move_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          kinect2_link_move_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           kinect2_move_frame:
             Alpha: 1
             Show Axes: false
@@ -699,8 +723,8 @@ Visualization Manager:
         Goal State Color: 250; 128; 0
         Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
-        Planning Group: manipulator
-        Query Goal State: true
+        Planning Group: manipulator_asus
+        Query Goal State: false
         Query Start State: false
         Show Workspace: false
         Start State Alpha: 1
@@ -795,6 +819,14 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
+          kinect2_between_move_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          kinect2_link_move_frame:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           kinect2_move_frame:
             Alpha: 1
             Show Axes: false
@@ -868,12 +900,11 @@ Visualization Manager:
             Value: true
         Robot Alpha: 1
         Show Robot Collision: false
-        Show Robot Visual: false
+        Show Robot Visual: true
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Default Light: true
     Fixed Frame: world_frame
     Frame Rate: 30
   Name: root
@@ -889,43 +920,43 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 1.18439317
+      Distance: 3.66218734
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.0418666936
-        Y: 0.191288412
-        Z: 0.942808449
+        X: 0.525658369
+        Y: -0.0593375824
+        Z: 0.598255157
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.414798945
+      Pitch: 0.11979866
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.93457985
+      Yaw: 4.24460554
     Saved: ~
 Window Geometry:
   BlendingPanel:
     collapsed: false
   Displays:
     collapsed: false
-  Height: 1056
+  Height: 744
   Hide Left Dock: false
   Hide Right Dock: true
   MotionPlanning:
     collapsed: false
   MotionPlanning - Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000002b8000003dafc0200000004fb0000000a005600690065007700730000000292000000b0000000b000fffffffb000000120020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000004a00fffffffc00000028000003da000002640100001dfa000000000100000006fb0000001a0042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff0000014600fffffffb0000001a0042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff0000000000000000fb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff000001fe00fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000000ffffffff000002b800fffffffb000000100044006900730070006c0061007900730100000000ffffffff0000016a00fffffffb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0000000000000001fe000001fe00ffffff00000481000003da00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000100000000000002b8000002a2fc0200000004fb0000000a005600690065007700730000000292000000b0000000b000fffffffb000000120020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb0000002e004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d00200053006c00690064006500720000000000ffffffff0000004a00fffffffc00000028000002a2000002640100001dfa000000040100000006fb0000001a0042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff0000014600fffffffb0000001a0042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff0000000000000000fb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0100000000ffffffff000001fe00fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e00670100000000ffffffff000002b800fffffffb000000100044006900730070006c0061007900730100000000ffffffff0000016a00fffffffb000000240052006f0062006f00740042006c0065006e00640069006e006700500061006e0065006c0000000000000001fe000001fe00ffffff00000257000002a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   RobotBlendingPanel:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1855
+  Width: 1301
   X: 65
   Y: 24

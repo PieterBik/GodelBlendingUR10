@@ -61,7 +61,7 @@
       </node>
     </group>
     <group unless="$(arg real_pcd)">
-      <remap from="generated_cloud" to="sensor_point_cloud_remap"/>
+      <remap from="generated_cloud" to="sensor_point_cloud"/>
       <node pkg="godel_surface_detection" type="point_cloud_generator_node" name="point_cloud_generator_node">
         <rosparam command="load" file="$(find godel_ur10_support)/config/point_cloud_descriptions.yaml"/>
       </node>
@@ -114,5 +114,5 @@
 
   <node name="godel_grinder" pkg="godel_grinder" type="godel_grinder_node" output="screen"/>
   <node name="motordriver_arduino" pkg="rosserial_python" type="serial_node.py" args="/dev/motordriver_arduino" output="screen"/>
-
+  <node pkg="tf" type="static_transform_publisher" name="kinect_link1_broadcaster" args="-0.08 0.08 0.228 1.57079 -0.78539 0  kinect2_move_frame kinect2_link 100" />
 </launch>
